@@ -4,11 +4,11 @@ import { IoSearchOutline } from "react-icons/io5";
 import { TfiLayoutMediaRight } from "react-icons/tfi";
 import { AiFillSpotify } from "react-icons/ai";
 
-const Navigate: React.FC = () => {
+const MobileNavigate: React.FC = () => {
   const [active, setActive] = useState("home");
 
   return (
-    <div className="flex justify-around py-3 left-0 w-full bg-black text-gray-400 gap-3 md:py-4">
+    <div className="flex justify-around py-3 left-0 w-full bg-black text-gray-400 gap-3 md:py-4 xl:hidden">
       <div
         className={`flex flex-col items-center gap-1 cursor-pointer ${
           active === "home" ? "text-white" : "text-gray-400"
@@ -54,4 +54,4 @@ const Navigate: React.FC = () => {
   );
 };
 
-export default Navigate;
+export default MobileNavigate;

@@ -12,15 +12,15 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
-interface HeaderProps {
+interface MobileHeaderProps {
 
 }
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<MobileHeaderProps> = () => {
     return (
         <>
-            <div className="p-2">
-                <header className="flex items-center p-3 justify-between">
+            <div className="p-2 xl:hidden">
+                <header className="flex items-center p-3 justify-between bg-[#121212] text-white">
                     <h1 className="font-bold text-xl">Добрый день</h1>
 
                     <div className="">
