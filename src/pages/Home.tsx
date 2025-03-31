@@ -1,3 +1,4 @@
+import ArtistList from "@/components/custom/ArtistList";
 
 
 interface HomeProps {
@@ -6,14 +7,12 @@ interface HomeProps {
  
 const Home: React.FC<HomeProps> = () => {
 
-    
+
 
     return ( 
         <>
-
-
-        <h3>Динамическая страница Home</h3></>
-
+        <ArtistList/>
+        </>
 
      );
 }
