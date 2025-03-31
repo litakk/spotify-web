@@ -5,7 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 const Footer: React.FC = () => {
   return (
     <div className="bg-black pb-20 text-white py-10">
-      <div className="max-w-screen-lg mx-auto p-4">
+      <div className="w-full mx-auto p-4">
         {/* Контейнер колонок */}
         <div className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid lg:grid-cols-5 lg:gap-9 lg:py-2">
           <div>
