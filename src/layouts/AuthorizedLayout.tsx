@@ -23,7 +23,7 @@ const AuthorizedLayout: React.FC<AuthorizedLayoutProps> = () => {
 
       <ResizablePanelGroup direction="horizontal">
           <Sidebar/>
-        <ResizableHandle withHandle className="hidden xl:flex" />
+        <ResizableHandle className="hidden xl:flex" />
         <ResizablePanel>
           <Outlet />
           <Footer />

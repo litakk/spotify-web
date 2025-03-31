@@ -66,11 +66,10 @@ function SignIn() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <h1 className="text-2xl font-bold mb-4">Вход в Spotify</h1>
+        <div className="flex flex-col items-center justify-center h-screen bg-green-500">
             <button
                 onClick={handleLogin}
-                className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 flex items-center gap-2"
+                className="bg-green-900 text-white px-6 py-2 rounded-lg hover:bg-green-700 flex items-center gap-2"
             >
                 <FaSpotify size={20} />
                 Войти

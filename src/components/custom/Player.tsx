@@ -17,8 +17,8 @@ const Player: React.FC<PlayerProps> = () => {
       <div className="flex items-center gap-4 w-1/3">
         <img src="/vite.svg" alt="song-cover" className="w-7 h-9 rounded-md object-cover" />
         <div className="flex flex-col">
-          <h5 className="text-sm font-semibold">Name</h5>
-          <p className="text-xs text-gray-400">Name</p>
+          <h5 className="text-sm font-semibold">Billie Eilish</h5>
+          <p className="text-xs text-gray-400">bad guy</p>
         </div>
       </div>
 
