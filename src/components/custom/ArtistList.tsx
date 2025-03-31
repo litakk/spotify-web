@@ -49,7 +49,7 @@ const ArtistsList: React.FC = () => {
 
     return (
         <div className="p-4">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Начните с этой музыки</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-500 dark:text-white">Начните с этой музыки</h2>
             
             {/* Главный артист (Билли Айлиш) */}
             {artists.length > 0 && (
