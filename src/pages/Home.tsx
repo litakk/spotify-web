@@ -1,4 +1,4 @@
-import ArtistList from "@/components/custom/ArtistList";
+import AllMusic from "@/components/custom/AllMusic";
 
 
 interface HomeProps {
@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = () => {
 
     return ( 
         <>
-        <ArtistList/>
+        <AllMusic/>
         </>
 
      );
