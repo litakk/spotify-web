@@ -3,3 +3,7 @@
     color: white;
     font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif; 
   }
+
+::-webkit-scrollbar {
+  display: none;
+}

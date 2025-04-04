@@ -14,23 +14,50 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useContext, useEffect, useState } from "react";
+import { tokenCTX } from "@/App";
+import { BASE_URL } from "@/exports";
+import { Link } from "react-router-dom";
 
 const DesktopHeader: React.FC = () => {
+  const [userData, setUserData] = useState<any>(null);
+  const token = useContext(tokenCTX);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(BASE_URL + "/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        setUserData(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    if (token) {
+      fetchUserData();
+    }
+  }, [token]);
+
   return (
     <div className="hidden xl:flex w-full bg-black text-white px-6 py-5">
-      {/* Основной контейнер с justify-between */}
-      <div className="flex justify-between items-center w-full max-w-screen-xl ">
+      <div className="flex justify-between items-center w-full max-w-screen-xl">
         {/* Левый блок (лого, кнопка "Домой", поиск) */}
         <div className="flex items-center gap-5">
           <a href="/me">
-            {" "}
             <FaSpotify size={35} className="" />
           </a>
           <div className="bg-[#121212] p-2 rounded-4xl transition-all duration-100 hover:-translate-y-1 hover:scale-100">
+            <Link to={"/me"}>
             <MdHomeFilled
               size={30}
-              className="text-gray-300 cursor-pointer hover:text-white transition-all duration-100 hover:-translate-y-1 hover:scale-100 "
+              className="text-gray-300 cursor-pointer hover:text-white transition-all duration-100 hover:-translate-y-1 hover:scale-100"
             />
+            </Link>
           </div>
 
           {/* Поле поиска */}
@@ -50,7 +77,7 @@ const DesktopHeader: React.FC = () => {
             Узнать больше о Premium
           </Button>
 
-          <Button className=" border-none hover:border-white flex items-center gap-2 transition-all duration-100 hover:-translate-y-1 hover:scale-105  hover:shadow-lg">
+          <Button className="border-none hover:border-white flex items-center gap-2 transition-all duration-100 hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
             <MdDownloadForOffline />
             Установить приложение
           </Button>
@@ -64,13 +91,21 @@ const DesktopHeader: React.FC = () => {
           {/* Меню пользователя */}
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="User Avatar"
-                className="w-10 h-10 rounded-full"
-              />
+              {userData?.images?.[0]?.url ? (
+                <img
+                  src={userData.images[0].url}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">
+                  {userData?.display_name?.[0] || "U"}
+                </div>
+              )}
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-gray-900 text-white border border-gray-700">
+              <DropdownMenuLabel>{userData?.display_name || "Пользователь"}</DropdownMenuLabel>
+              <DropdownMenuSeparator />
               <DropdownMenuItem>Аккаунт</DropdownMenuItem>
               <DropdownMenuItem>Профиль</DropdownMenuItem>
               <DropdownMenuItem>Переход на Premium</DropdownMenuItem>

@@ -5,6 +5,7 @@ import AuthorizedLayout from "./layouts/AuthorizedLayout";
 import Home from "./pages/Home";
 import "./App.css";
 import { createContext } from "react";
+import Playlist from "./pages/Playlist";
 
 interface AppProps {}
 
@@ -23,7 +24,8 @@ const App: React.FC<AppProps> = () => {
         </Route>
 
         <Route path="/me" element={<AuthorizedLayout />}>
-          <Route index element={<Home />}></Route>
+          <Route index element={<Home />}/>
+          <Route path="collection/tracks" element={<Playlist/>}/>
         </Route>
       </Routes>
     </tokenCTX.Provider>
